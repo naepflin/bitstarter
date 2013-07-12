@@ -44,7 +44,6 @@ var cheerioHtmlFile = function(htmlfile) {
 };
 
 var cheerioLoadedFile = function(htmlcontent) {
-    console.log("2");
     return cheerio.load(htmlcontent);
 }
 
@@ -53,7 +52,7 @@ var loadChecks = function(checksfile) {
 };
 
 var checkHtmlFile = function(htmlfile, checksfile) {
-     $ = cheerioHtmlFile(htmlfile);
+    $ = cheerioHtmlFile(htmlfile);
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
@@ -80,7 +79,6 @@ var testURLFile  = function(html, checksfile) {
         var present = $(checks[ii]).length > 0;
         out[checks[ii]] = present;
     }
-console.log(html);
     return out;
 }
 
